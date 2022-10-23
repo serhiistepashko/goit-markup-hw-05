@@ -23,12 +23,15 @@
   --bckgrnd-over-color: rgba(47, 48, 58, 0.4);
   --icon-color: #afb1b8;
   --bckgrnd-soc-color: rgba(255, 255, 255, 0.1);
+  --timing-function-1: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-1: 250ms; 
 }
 
 body {
   font-family: var(--main-font-family);
   color: var(--primary-color);
   margin: 0;
+  /* padding-top: 80px; */
 }
 
 ul {
@@ -39,6 +42,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   margin: 0;
   padding: 0;
 }
+
+/* .page-main {
+  padding-top: 80px;
+} */
 
 /* стилі у тегів <section> */
 .changes-section {
@@ -73,7 +80,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
 /* клаc тегу header */
 .header-page {
   border-bottom: 1px solid var(--border-bottom-color);
+  /* position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0; */
 }
+
 
 /* div обгортка логотипу та навігації хедера */
 .header-container {
@@ -86,6 +98,20 @@ h1, h2, h3, h4, h5, h6, p, ul {
   display: flex;
   gap: 50px;
 }
+
+.current::after {
+  display: inline-block;
+  content:"";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--primary-color);
+ }
+
+
 
 /* список що йде зразу за списком навігаціїї(email та tel) (хедер) */
 .link-contacts {  
@@ -104,7 +130,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
   align-items: center;
 }
 
+
 .link:hover .link-contacts-icon {
+  fill: var(--bluelite-color);
+}
+
+.link:focus .link-contacts-icon {
   fill: var(--bluelite-color);
 }
 
@@ -151,6 +182,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: var(--primary-color);
   text-decoration: none;
   padding: 32px 0;
+  transition: color var(--duration-1) var(--timing-function-1);
+  position: relative;
 }
 
 /* колір тексту  для пошти і телефону */
@@ -213,6 +246,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   margin: 0 auto;
+  transition: color var(--duration-1) var(--timing-function-1), background-color var(--duration-1) var(--timing-function-1); box-shadow var(--duration-1) var(--timing-function-1);
 }
 
 /* кнопка при ховері (герой) */
@@ -339,17 +373,19 @@ background-color: var(--btnhover-color);
   margin-top: 16px;
 }
 
-.soc-list-link{
+.soc-list-link {
   width: 44px;
   height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  transition: background-color var(--duration-1) var(--timing-function-1);
 }
 
 .soc-icon {
   fill: var(--icon-color);
+  transition: fill var(--duration-1) var(--timing-function-1);
 }
 
 .soc-list-link:hover {
@@ -387,10 +423,12 @@ background-color: var(--btnhover-color);
   background-color: var(--bckgrnd-icon-color);
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  transition: background-color var(--duration-1) var(--timing-function-1), border-color var(--duration-1) var(--timing-function-1);
 }
 
 .customer-logo {
   fill: var(--icon-color);
+  transition: fill var(--duration-1) var(--timing-function-1);
 }
 
 .regular-customer-link:hover {
@@ -470,6 +508,7 @@ background-color: var(--btnhover-color);
   letter-spacing: 0.03em;
   color: var(--secondary-color);
   text-decoration: none;
+  transition: color var(--duration-1) var(--timing-function-1);
 }
 
 /*ховер посилання елементів списку у тезі address (футер) */
@@ -524,6 +563,7 @@ background-color: var(--btnhover-color);
   border: none;
   border-radius: 4px;
   padding: 6px 22px;
+  transition: color var(--duration-1) var(--timing-function-1), background-color var(--duration-1) var(--timing-function-1),box-shadow var(--duration-1) var(--timing-function-1);
 }
 
 /* ховер кнопки секції з класом "portfolio"(мейн) */
