@@ -48,7 +48,7 @@
       <section class="hero changes-section">
         <div class="container">
           <h1 class="hero-heading">Ефективні рішення для вашого бізнесу</h1>
-          <button class="hero-btn" type="button">Замовити послугу</button>
+          <button class="hero-btn" type="button" data-modal-open>Замовити послугу</button>
         </div>
       </section>
       <section class="advantages changes-section">
@@ -110,25 +110,22 @@
           <h2 class="what-we-do-heading second-lvl-title">Чим ми займаємося</h2>
           <ul class="what-we-do-list">
             <li class="what-we-do-list-item">
-              <img
-                src="./images/img1.jpg"
-                alt="планшет, дві руки на клавіатурі щось друкують"
-                width="370"
-              />
+              <div class="what-we-do-thumb">
+                <img src="./images/img1.jpg" alt="планшет, дві руки на клавіатурі щось друкують" width="370" />
+                <h3 class="what-we-do-title third-lvl-title">Десктопні додатки</h3>
+              </div>
             </li>
             <li class="what-we-do-list-item">
-              <img
-                src="./images/img2.jpg"
-                alt="ноутбук та частина монітору на яких зображено смартфони і дві жіночі руки, в лівій руці знаходиться смартфон"
-                width="370"
-              />
+              <div class="what-we-do-thumb">
+                <img src="./images/img2.jpg" alt="ноутбук та частина монітору на яких зображено смартфони і дві жіночі руки, в лівій руці знаходиться смартфон" width="370" />
+                <h3 class="what-we-do-title third-lvl-title">Мобільні додатки</h3>
+              </div>
             </li>
             <li class="what-we-do-list-item">
-              <img
-                src="./images/img3.jpg"
-                alt="дві руки, в лівій планшет з зображенням палітри кольорів, в правій стилус"
-                width="370"
-              />
+              <div class="what-we-do-thumb">
+                <img src="./images/img3.jpg" alt="дві руки, в лівій планшет з зображенням палітри кольорів, в правій стилус" width="370" />
+                <h3 class="what-we-do-title third-lvl-title">Дизайнерські рішення</h3>
+              </div>
             </li>
           </ul>
         </div>
@@ -341,5 +338,15 @@
       </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-btn" type="button" data-modal-close>
+          <svg class="cross" width="18px" height="18px">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

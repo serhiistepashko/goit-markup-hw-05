@@ -21,10 +21,13 @@
   --main-font-family: "Roboto", sans-serif;
   --additional-font-family: "Raleway", sans-serif;
   --bckgrnd-over-color: rgba(47, 48, 58, 0.4);
+  --bckgrnd-title-color: rgba(47, 48, 58, 0.8);
+  --backdrop-backgrnd-color: rgba(0, 0, 0, 0.2);
   --icon-color: #afb1b8;
   --bckgrnd-soc-color: rgba(255, 255, 255, 0.1);
   --timing-function-1: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-1: 250ms; 
+  --duration-1: 250ms;
+  --bckgrnd-color-before: rgba(33, 150, 243, 0.9);
 }
 
 body {
@@ -43,8 +46,63 @@ h1, h2, h3, h4, h5, h6, p, ul {
   padding: 0;
 }
 
-/* .page-main {
-  padding-top: 80px;
+/* модальне вікно */
+.backdrop {
+  background-color: var(--backdrop-backgrnd-color);
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity var(--duration-1) var(--timing-function-1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--duration-1) var(--timing-function-1);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  
+}
+
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-color);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: backgrond-color var(--duration-1) var(--timing-function-1);
+}
+
+.modal-btn:hover {
+  background-color: var(--bluelite-color);
+}
+
+/* .modal-btn:focus {
+  background-color: var(--bluelite-color);
 } */
 
 /* стилі у тегів <section> */
@@ -108,7 +166,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--bluelite-color);
  }
 
 
@@ -246,7 +304,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   margin: 0 auto;
-  transition: color var(--duration-1) var(--timing-function-1), background-color var(--duration-1) var(--timing-function-1); box-shadow var(--duration-1) var(--timing-function-1);
+  cursor: pointer;
+  transition: color var(--duration-1) var(--timing-function-1), background-color var(--duration-1) var(--timing-function-1), box-shadow var(--duration-1) var(--timing-function-1);
 }
 
 /* кнопка при ховері (герой) */
@@ -276,16 +335,7 @@ background-color: var(--btnhover-color);
   margin-bottom: 30px;
 }
 
-/* заголовок h3 в елементах списку секціїї advantages (мейн) */
-/* .points {
-  font-size: 14px;
-  line-height: 1.1;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
- } */
-
- /* абзац p в елементах списку секціїї advantages (мейн) */
+/* абзац p в елементах списку секціїї advantages (мейн) */
 .description {
   font-size: 14px;
   line-height: 1.7;
@@ -299,14 +349,23 @@ background-color: var(--btnhover-color);
   /* background-color: teal; */
 }
 
-/* заголовок h2 секції "what-we-do"(мейн) */
-/* .what-we-do-heading {
-  font-size: 36px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+.what-we-do-thumb {
+  position: relative;
+  
+}
+
+/* заголовок h3 секції "what-we-do"(мейн) */
+.what-we-do-title {
+  width: 100%;
+  height: 70px;
+  padding-top: 27px;
+  background-color: var(--bckgrnd-title-color);
+  color: var(--white-color);
   text-align: center;
-  margin-bottom: 50px;
-} */
+  position: absolute;
+  bottom: -6px;
+
+}
 
 /* список секції "what-we-do"(мейн) */
 .what-we-do-list {
@@ -580,6 +639,38 @@ background-color: var(--btnhover-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+
+.portfolio-thumb::before {
+  display: inline-block;
+  content: "Ресурс пропонує комплексні пропозиції з різним рівнем функціоналу та сервісів. Все це дозволить відвідувачу отримати вичерпні відомості про компанію чи приватну особу.";
+  width: 100%;
+  height: 100%;
+  background-color: var(--bckgrnd-color-before);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  font-family: var(--main-font-family);
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--white-color);
+  transform: translateY(100%);
+  transition: transform var(--duration-1) var(--timing-function-1);
+}
+
+
+.portfolio-list-item:hover .portfolio-thumb::before {
+  transform: translateY(0);
+}
+
+
 /* список елементів секції з класом "portfolio"(мейн) */
 .portfolio-list {
   display: flex;
@@ -591,6 +682,7 @@ background-color: var(--btnhover-color);
   background-color: var(--white-color);
   margin-right: 30px;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .portfolio-list-item:hover {
