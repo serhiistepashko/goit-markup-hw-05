@@ -56,15 +56,15 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 100%;
   z-index: 1;
   opacity: 1;
-  transition: opacity var(--duration-1) var(--timing-function-1);
+  transition: opacity var(--duration-1) var(--timing-function-1), visibility var(--duration-1) var(--timing-function-1); 
 }
 
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--duration-1) var(--timing-function-1);
-}
+}  
+
 
 .modal {
   position: absolute;
@@ -77,8 +77,21 @@ h1, h2, h3, h4, h5, h6, p, ul {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   0px 1px 1px rgba(0, 0, 0, 0.14),
   0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  
+  border-radius: 4px; 
+}
+
+.backdrop.is-hidden .modal {
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.5);
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px; 
 }
 
 .modal-btn {
@@ -94,11 +107,19 @@ h1, h2, h3, h4, h5, h6, p, ul {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: backgrond-color var(--duration-1) var(--timing-function-1);
+  transition: background-color var(--duration-1) var(--timing-function-1);
 }
 
 .modal-btn:hover {
   background-color: var(--bluelite-color);
+}
+
+.cross {
+  transition: fill var(--duration-1) var(--timing-function-1);
+}
+
+.modal-btn:hover .cross{
+  fill: var(--white-color);
 }
 
 /* .modal-btn:focus {
