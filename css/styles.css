@@ -81,17 +81,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 .backdrop.is-hidden .modal {
- position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%) scale(.5);
-  width: 528px;
-  height: 581px;
-  background-color: var(--white-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px; 
 }
 
 .modal-btn {
