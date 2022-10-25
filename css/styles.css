@@ -122,10 +122,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
   fill: var(--white-color);
 }
 
-/* .modal-btn:focus {
-  background-color: var(--bluelite-color);
-} */
-
 /* стилі у тегів <section> */
 .changes-section {
   padding-top: 94px;
