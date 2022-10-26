@@ -59,11 +59,11 @@ h1, h2, h3, h4, h5, h6, p, ul {
   transition: opacity var(--duration-1) var(--timing-function-1), visibility var(--duration-1) var(--timing-function-1); 
 }
 
-.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--duration-1) var(--timing-function-1), visibility var(--duration-1) var(--timing-function-1);
+  /* transition: opacity var(--duration-1) var(--timing-function-1), visibility var(--duration-1) var(--timing-function-1); */
 }  
 
 
@@ -79,11 +79,11 @@ h1, h2, h3, h4, h5, h6, p, ul {
   0px 1px 1px rgba(0, 0, 0, 0.14),
   0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transition: translate var(--duration-1) var(--timing-function-1);
+  transition: transform var(--duration-1) var(--timing-function-1);
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(1.2);
+  transform: translate(-50%, -50%) scale(1.8);
 }
 
 .modal-btn {
